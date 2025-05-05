@@ -5,12 +5,15 @@ import { useTranslation } from 'react-i18next';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation(); // i18n header qismida select o'zgarishi uchun kerak ekan 
+
+  console.log(i18n);
+  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  
   const handleLanguageChange = (e) => {
     const selectedLanguage = e.target.value;
     i18n.changeLanguage(selectedLanguage);

@@ -1,9 +1,11 @@
 import "./Contact.css";
-import Image from "./images/person-in-white-chemical-protection-suit-holding-sprayer-with-disinfectant-chemicals-to-stop-spreading-highly-contagious-virus_342744-937-removebg-preview 1.png"; // Rasmni moslashtirishingiz kerak
+import Image from "./images/person-in-white-chemical-protection-suit-holding-sprayer-with-disinfectant-chemicals-to-stop-spreading-highly-contagious-virus_342744-937-removebg-preview 1.png";
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 function Contact() {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -12,19 +14,16 @@ function Contact() {
 
   const faqs = [
     {
-      question: "Kursdan nima topaman",
-      answer:
-        "Bu bir notka kayfiyday kapy darsga qatnasha olmasangiz, darsdan so’ng qurhingizga zoom zapisi tashlab beriladi",
+      question: t("faq-question-1"),
+      answer: t("faq-answer-1"),
     },
     {
-      question: "Kursdan nima topaman",
-      answer:
-        "Bu bir notka kayfiyday kapy darsga qatnasha olmasangiz, darsdan so’ng qurhingizga zoom zapisi tashlab beriladi",
+      question: t("faq-question-2"),
+      answer: t("faq-answer-2"),
     },
     {
-      question: "Kursdan nima topaman",
-      answer:
-        "Bu bir notka kayfiyday kapy darsga qatnasha olmasangiz, darsdan so’ng qurhingizga zoom zapisi tashlab beriladi",
+      question: t("faq-question-3"),
+      answer: t("faq-answer-3"),
     },
   ];
 
@@ -34,7 +33,7 @@ function Contact() {
         <div className="contact-container">
           <div className="faq-section">
             <h2 className="faq-title" id="Faq-section">
-              FAQ
+              {t("faq-title")}
             </h2>
             <div className="faq-list">
               {faqs.map((faq, index) => (
@@ -57,34 +56,33 @@ function Contact() {
           </div>
           <div className="contact-bottom" id="Contact-section">
             <div className="contact-left">
-              <h3 className="contact-left-title">Ma'lumotingiz qoldiring</h3>
+              <h3 className="contact-left-title">{t("contact-left-title")}</h3>
               <form>
                 <input
                   type="text"
-                  placeholder="Ism"
+                  placeholder={t("contact-input-placeholder-name")}
                   className="contact-input"
                 />
                 <div className="phone-input">
                   <span className="phone-code">+998</span>
                   <input
                     type="tel"
-                    placeholder=""
+                    placeholder={t("contact-input-placeholder-phone")}
                     className="contact-input phone-number"
                   />
                 </div>
                 <label className="contact-checkbox">
                   <input type="checkbox" />
-                  Maxfiylik/siyosati
+                  {t("contact-checkbox-label")}
                 </label>
                 <button type="submit" className="contact-button">
-                  Yozilish
+                  {t("contact-button")}
                 </button>
               </form>
             </div>
             <div className="contact-right">
               <p className="contact-right-text">
-                Bizga ko'p yillardan beri kompaniyamizga ishonch bildirganlar
-                talaygina
+                {t("contact-right-text")}
               </p>
               <img src={Image} alt="Contact" className="contact-right-img" />
             </div>
